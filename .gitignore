@@ -2,3 +2,5 @@ keystore.p12
 *.jks
 *.keystore
 config.yml
+.DS_Store
+/tmp
