@@ -44,18 +44,51 @@
     "size": 4507670,
     "apkName": "gitgost-0.1.0.apk",
     "icon": "com.livrasand.gitgost.1.png",
-    "added": 1785720740.759515
+    "added": 1785720740.0
   },
-  "icon.png": {
-    "name": "icon",
-    "apkName": "icon.png",
-    "hash": "b9d122bae4b16295dde6545d2b26d4157f8d0732206becc60001320dee3b7b1d",
+  "gitgost-0.1.1.apk": {
+    "hash": "757c812c19af386dd07af419068f3e050a8829160dd125582bf2a885c59a0102",
     "hashType": "sha256",
-    "ipfsCIDv1": null,
-    "versionCode": 0,
-    "versionName": "b9d122b",
-    "packageName": "b9d122bae4b16295dde6545d2b26d4157f8d0732206becc60001320dee3b7b1d",
-    "size": 68824,
-    "added": 1785720740.760399
+    "uses-permission": [
+      [
+        "android.permission.INTERNET",
+        null
+      ],
+      [
+        "com.livrasand.gitgost.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION",
+        null
+      ]
+    ],
+    "uses-permission-sdk-23": [],
+    "features": [],
+    "icons_src": {
+      "240": "res/mipmap-hdpi-v4/ic_launcher.png",
+      "160": "res/mipmap-mdpi-v4/ic_launcher.png",
+      "320": "res/mipmap-xhdpi-v4/ic_launcher.png",
+      "480": "res/mipmap-xxhdpi-v4/ic_launcher.png",
+      "640": "res/mipmap-xxxhdpi-v4/ic_launcher.png",
+      "-1": "res/mipmap-mdpi-v4/ic_launcher.png"
+    },
+    "icons": {
+      "640": "com.livrasand.gitgost.2.png",
+      "480": "com.livrasand.gitgost.2.png",
+      "320": "com.livrasand.gitgost.2.png",
+      "240": "com.livrasand.gitgost.2.png",
+      "160": "com.livrasand.gitgost.2.png",
+      "0": "com.livrasand.gitgost.2.png"
+    },
+    "antiFeatures": {},
+    "packageName": "com.livrasand.gitgost",
+    "versionCode": 2,
+    "name": "gitGost",
+    "versionName": "0.1.1",
+    "minSdkVersion": 24,
+    "targetSdkVersion": 36,
+    "sig": "83ff660a65e1dd6280eda3bfe08b82c1",
+    "signer": "7fb39b2781eb6cd7a6083e1a9068efdfa1b89d484d732ccdf4e339696e0fbbf7",
+    "size": 4595186,
+    "apkName": "gitgost-0.1.1.apk",
+    "icon": "com.livrasand.gitgost.2.png",
+    "added": 1785783642.105847
   }
 }
