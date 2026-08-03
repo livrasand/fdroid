@@ -1,0 +1,61 @@
+{
+  "METADATA_VERSION": 20002,
+  "allow_disabled_algorithms": false,
+  "gitgost-0.1.0.apk": {
+    "hash": "3b2a45255ff19ad78c80bda355ab9c6b3729ad76be4434fd015637101bb4f85b",
+    "hashType": "sha256",
+    "uses-permission": [
+      [
+        "android.permission.INTERNET",
+        null
+      ],
+      [
+        "com.livrasand.gitgost.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION",
+        null
+      ]
+    ],
+    "uses-permission-sdk-23": [],
+    "features": [],
+    "icons_src": {
+      "240": "res/mipmap-hdpi-v4/ic_launcher.png",
+      "160": "res/mipmap-mdpi-v4/ic_launcher.png",
+      "320": "res/mipmap-xhdpi-v4/ic_launcher.png",
+      "480": "res/mipmap-xxhdpi-v4/ic_launcher.png",
+      "640": "res/mipmap-xxxhdpi-v4/ic_launcher.png",
+      "-1": "res/mipmap-mdpi-v4/ic_launcher.png"
+    },
+    "icons": {
+      "640": "com.livrasand.gitgost.1.png",
+      "480": "com.livrasand.gitgost.1.png",
+      "320": "com.livrasand.gitgost.1.png",
+      "240": "com.livrasand.gitgost.1.png",
+      "160": "com.livrasand.gitgost.1.png",
+      "0": "com.livrasand.gitgost.1.png"
+    },
+    "antiFeatures": {},
+    "packageName": "com.livrasand.gitgost",
+    "versionCode": 1,
+    "name": "gitGost",
+    "versionName": "1.0",
+    "minSdkVersion": 24,
+    "targetSdkVersion": 36,
+    "sig": "07417ad5e68f5c6006767c282c77a42a",
+    "signer": "48c27db95cbe8ae6d56968e15d904c8d687aed0d2d11439e8aeb557050e404f1",
+    "size": 4507670,
+    "apkName": "gitgost-0.1.0.apk",
+    "icon": "com.livrasand.gitgost.1.png",
+    "added": 1785720740.759515
+  },
+  "icon.png": {
+    "name": "icon",
+    "apkName": "icon.png",
+    "hash": "b9d122bae4b16295dde6545d2b26d4157f8d0732206becc60001320dee3b7b1d",
+    "hashType": "sha256",
+    "ipfsCIDv1": null,
+    "versionCode": 0,
+    "versionName": "b9d122b",
+    "packageName": "b9d122bae4b16295dde6545d2b26d4157f8d0732206becc60001320dee3b7b1d",
+    "size": 68824,
+    "added": 1785720740.760399
+  }
+}
