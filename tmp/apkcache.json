@@ -2,11 +2,15 @@
   "METADATA_VERSION": 20002,
   "allow_disabled_algorithms": false,
   "gitgost-0.1.0.apk": {
-    "hash": "3b2a45255ff19ad78c80bda355ab9c6b3729ad76be4434fd015637101bb4f85b",
+    "hash": "0bcddd1d4d11d5b99c6a45102c3a0e3281c4e2f42f1059eb244a4ea1b9d94610",
     "hashType": "sha256",
     "uses-permission": [
       [
         "android.permission.INTERNET",
+        null
+      ],
+      [
+        "android.permission.ACCESS_NETWORK_STATE",
         null
       ],
       [
@@ -25,25 +29,25 @@
       "-1": "res/mipmap-mdpi-v4/ic_launcher.png"
     },
     "icons": {
-      "640": "com.livrasand.gitgost.1.png",
-      "480": "com.livrasand.gitgost.1.png",
-      "320": "com.livrasand.gitgost.1.png",
-      "240": "com.livrasand.gitgost.1.png",
-      "160": "com.livrasand.gitgost.1.png",
-      "0": "com.livrasand.gitgost.1.png"
+      "640": "com.livrasand.gitgost.2.png",
+      "480": "com.livrasand.gitgost.2.png",
+      "320": "com.livrasand.gitgost.2.png",
+      "240": "com.livrasand.gitgost.2.png",
+      "160": "com.livrasand.gitgost.2.png",
+      "0": "com.livrasand.gitgost.2.png"
     },
     "antiFeatures": {},
     "packageName": "com.livrasand.gitgost",
-    "versionCode": 1,
+    "versionCode": 2,
     "name": "gitGost",
-    "versionName": "1.0",
+    "versionName": "0.1.1",
     "minSdkVersion": 24,
     "targetSdkVersion": 36,
-    "sig": "07417ad5e68f5c6006767c282c77a42a",
-    "signer": "48c27db95cbe8ae6d56968e15d904c8d687aed0d2d11439e8aeb557050e404f1",
-    "size": 4507670,
+    "sig": "98e9ff251429f4b10a11e8a723d631dd",
+    "signer": "2937e3064bb5a02d0fc527fb9685786065f4db559cbb6f0a99a1406163973f70",
+    "size": 5257146,
     "apkName": "gitgost-0.1.0.apk",
-    "icon": "com.livrasand.gitgost.1.png",
+    "icon": "com.livrasand.gitgost.2.png",
     "added": 1785720740.0
   },
   "gitgost-0.1.1.apk": {

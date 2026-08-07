@@ -1,9 +1,37 @@
-AuthorName: ''
+AuthorName: livrasand
 Categories:
-- fdroid
-CurrentVersionCode: 2147483647
-IssueTracker: ''
+- Development
+Changelog: https://github.com/livrasand/gitGost/releases
+Description: |
+  # gitGost
+
+  **Explore GitHub, GitLab and Codeberg from your Android device, with a focus on privacy.**
+
+  gitGost is a free and open-source client designed to browse repositories, discover projects and follow software development without relying on official apps or unnecessary trackers. The app offers a fast, lightweight and privacy-respecting experience.
+
+  ### Key features
+
+  - Explore public repositories on GitHub, GitLab and Codeberg.
+  - Search for projects, users and organizations.
+  - View files, READMEs, commits, branches, tags and releases.
+  - Browse issues, pull requests, discussions and releases.
+  - Navigate source code with syntax highlighting and Markdown rendering.
+  - Support for Mermaid diagrams inside documentation.
+  - Interface optimized for phones and tablets.
+  - Fully open-source project.
+
+  ### Privacy first
+
+  gitGost is designed to minimize data collection. It doesn't require an account to explore public repositories and avoids unnecessary tracking whenever possible.
+
+  ### Open source
+
+  The project is publicly available and anyone can audit the code, report issues or contribute to its development.
+
+  If you're looking for a simple, fast and privacy-focused way to explore free software projects from Android, gitGost is for you.
+IssueTracker: https://github.com/livrasand/gitGost/issues
+License: GPL-3.0-only
 Name: gitGost
-SourceCode: ''
-Summary: ''
-WebSite: ''
+SourceCode: https://github.com/livrasand/gitGost
+Summary: Privacy-first open-source client to explore GitHub, GitLab and Codeberg from Android.
+WebSite: https://gitgost.livrasand.com/
