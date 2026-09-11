@@ -72,7 +72,7 @@ jobs:
           fdroid --version
 
       - name: Sync APK to F-Droid repo
-        uses: livrasand/gh-fdroid-release@v1.0.0
+        uses: livrasand/gh-fdroid-release@v1.0.1
         env:
           FDROID_KEY_STORE_PASS: ${{ secrets.FDROID_KEY_STORE_PASS }}
           FDROID_KEY_PASS: ${{ secrets.FDROID_KEY_PASS }}
