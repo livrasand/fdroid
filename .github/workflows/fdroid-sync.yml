@@ -36,13 +36,11 @@ jobs:
           echo "Resolved tag: $TAG"
 
       - name: Restore keystore from secret
-        if: ${{ secrets.FDROID_KEYSTORE_B64 != '' }}
         env:
           FDROID_KEYSTORE_B64: ${{ secrets.FDROID_KEYSTORE_B64 }}
         run: echo "$FDROID_KEYSTORE_B64" | base64 -d > keystore.p12
 
       - name: Restore config.yml from secret
-        if: ${{ secrets.FDROID_CONFIG_B64 != '' }}
         env:
           FDROID_CONFIG_B64: ${{ secrets.FDROID_CONFIG_B64 }}
         run: echo "$FDROID_CONFIG_B64" | base64 -d > config.yml
