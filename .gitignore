@@ -2,6 +2,7 @@ keystore.p12
 *.jks
 *.keystore
 config.yml
+.env
 .DS_Store
 /tmp
 icon.png

@@ -69,7 +69,7 @@ jobs:
       - name: Install fdroidserver
         run: |
           pip install fdroidserver
-          fdroid version
+          fdroid --version
 
       - name: Sync APK to F-Droid repo
         uses: livrasand/gh-fdroid-release@v1.0.0
