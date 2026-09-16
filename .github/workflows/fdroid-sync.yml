@@ -62,15 +62,23 @@ jobs:
           python3 - <<'PY'
           from pathlib import Path
           import re
+          import shutil
 
           path = Path("config.yml")
           text = path.read_text()
-          replacement = "repo_icon: repo/icons/icon.png"
+          replacement = "repo_icon: icon.png"
           if re.search(r"^repo_icon:", text, flags=re.MULTILINE):
               text = re.sub(r"^repo_icon:.*$", replacement, text, flags=re.MULTILINE)
           else:
               text = text.rstrip() + "\n" + replacement + "\n"
           path.write_text(text)
+
+          # fdroidserver copies repo_icon from the repo root into
+          # repo/icons/<basename>; keep the source outside repo/ to avoid
+          # shutil.SameFileError. Use the committed repo icon as the source.
+          src = Path("repo/icons/icon.png")
+          if src.exists():
+              shutil.copyfile(src, Path("icon.png"))
           PY
           chmod 600 config.yml
 
