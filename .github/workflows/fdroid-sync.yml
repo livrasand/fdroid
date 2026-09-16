@@ -38,12 +38,76 @@ jobs:
       - name: Restore keystore from secret
         env:
           FDROID_KEYSTORE_B64: ${{ secrets.FDROID_KEYSTORE_B64 }}
-        run: echo "$FDROID_KEYSTORE_B64" | base64 -d > keystore.p12
+        run: |
+          if [ -z "$FDROID_KEYSTORE_B64" ]; then
+            echo "FDROID_KEYSTORE_B64 secret is not set"
+            exit 1
+          fi
+          printf '%s' "$FDROID_KEYSTORE_B64" | base64 --decode > keystore.p12
+          chmod 600 keystore.p12
 
       - name: Restore config.yml from secret
         env:
           FDROID_CONFIG_B64: ${{ secrets.FDROID_CONFIG_B64 }}
-        run: echo "$FDROID_CONFIG_B64" | base64 -d > config.yml
+        run: |
+          if [ -z "$FDROID_CONFIG_B64" ]; then
+            echo "FDROID_CONFIG_B64 secret is not set"
+            exit 1
+          fi
+          printf '%s' "$FDROID_CONFIG_B64" | base64 --decode > config.yml
+          chmod 600 config.yml
+
+      - name: Configure F-Droid repository icon
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          path = Path("config.yml")
+          text = path.read_text()
+          replacement = "repo_icon: repo/icons/icon.png"
+          if re.search(r"^repo_icon:", text, flags=re.MULTILINE):
+              text = re.sub(r"^repo_icon:.*$", replacement, text, flags=re.MULTILINE)
+          else:
+              text = text.rstrip() + "\n" + replacement + "\n"
+          path.write_text(text)
+          PY
+          chmod 600 config.yml
+
+      - name: Repair repository signing keystore
+        env:
+          FDROID_KEY_STORE_PASS: ${{ secrets.FDROID_KEY_STORE_PASS }}
+        run: |
+          set -euo pipefail
+          if [ -z "$FDROID_KEY_STORE_PASS" ]; then
+            echo "FDROID_KEY_STORE_PASS secret is not set"
+            exit 1
+          fi
+          work_dir="$RUNNER_TEMP/fdroid-keystore"
+          mkdir -p "$work_dir"
+          python3 - "$work_dir/repo-pubkey.der" <<'PY'
+          from pathlib import Path
+          import re
+          import sys
+
+          index = Path("repo/index.xml").read_text()
+          match = re.search(r"<repo\b[^>]*\bpubkey=\"([0-9a-fA-F]+)\"", index)
+          if not match:
+              raise SystemExit("Repository public key not found in repo/index.xml")
+          Path(sys.argv[1]).write_bytes(bytes.fromhex(match.group(1)))
+          PY
+          openssl x509 -inform DER -in "$work_dir/repo-pubkey.der" -out "$work_dir/repo-cert.pem"
+          openssl pkcs12 -in keystore.p12 -nocerts -nodes \
+            -passin env:FDROID_KEY_STORE_PASS \
+            -out "$work_dir/repo-key.pem"
+          openssl pkcs12 -export \
+            -inkey "$work_dir/repo-key.pem" \
+            -in "$work_dir/repo-cert.pem" \
+            -name livrasand \
+            -out "$work_dir/keystore.p12" \
+            -passout env:FDROID_KEY_STORE_PASS
+          mv "$work_dir/keystore.p12" keystore.p12
+          chmod 600 keystore.p12
 
       - name: Set up JDK
         # v5 runs on Node 24 (the current default runtime).
@@ -79,7 +143,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           source: livrasand/gitGost
-          apk: "*.apk"
+          apk: "gitgost-0.1.0.apk"
           release: ${{ steps.resolve-tag.outputs.tag }}
           repo-directory: repo
           verify-signature: "true"
